@@ -1,14 +1,16 @@
-name: Deployment
+name: PROD Deployment
 
 on:
   push:
     branches:
-      - "release/**"
+      - "production"
 
 jobs:
   deployment:
     runs-on: ubuntu-latest
     environment:
-      name: {{ github.ref_name }}
+      name: production
+    env:
+      DEPLOYMENT_ENVIRONMENT: jobs.deployment.environment
     steps:
-      - run: echo Deploying to $GITHUB_REF_NAME
+      - run: echo Deploying to $DEPLOYMENT_ENVIRONMENT
