@@ -1,0 +1,13 @@
+name: manual-workflow-test
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Some message'
+        required: true
+        type: string
+jobs:
+  print-message:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.event.inputs.message }}
