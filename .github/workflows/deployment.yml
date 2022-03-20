@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     env:
-      DEPLOYMENT_ENVIRONMENT: jobs.deployment.environment
+      DEPLOYMENT_ENVIRONMENT: {{ jobs.deployment.environment }}
     steps:
       - run: echo Deploying to $DEPLOYMENT_ENVIRONMENT
