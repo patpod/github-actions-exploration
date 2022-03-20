@@ -1,0 +1,14 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - "release/**"
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment:
+      name: {{ github.ref_name }}
+    steps:
+      - run: echo Deploying to $GITHUB_REF_NAME
