@@ -8,7 +8,7 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment: {{ github.ref_name }}
+    environment: production
     env:
       DEPLOYMENT_ENVIRONMENT: jobs.deployment.environment
     steps:
