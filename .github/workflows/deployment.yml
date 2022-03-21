@@ -1,4 +1,4 @@
-name: PROD Deployment
+name: Deployment
 
 on:
   push:
@@ -8,8 +8,6 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment: production
-    env:
-      DEPLOYMENT_ENVIRONMENT: {{ jobs.deployment.environment }}
+    environment: ${{ github.ref_name }}
     steps:
-      - run: echo Deploying to $DEPLOYMENT_ENVIRONMENT
+      - run: echo Deploying to environment ${{ github.ref_name }}
